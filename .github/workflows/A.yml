@@ -2,7 +2,10 @@
 
 name: My Workflow
 
-on: push
+on: 
+  push:
+    branches: 
+      - main
 
 env:
   include: env.yml
