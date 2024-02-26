@@ -1,0 +1,19 @@
+name: Use Environment Variables
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  use-env-vars:
+    runs-on: ubuntu-latest
+    needs: set-env-vars
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Use Variables
+        run: |
+          echo "Value from B: $env-vars"
