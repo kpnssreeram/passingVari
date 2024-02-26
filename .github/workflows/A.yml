@@ -1,3 +1,5 @@
+# .github/workflows/workflow.yml
+
 name: My Workflow
 
 on: push
@@ -16,4 +18,3 @@ jobs:
       run: |
         echo $FOO 
         echo $BAZ
-Commit the env.yml an
