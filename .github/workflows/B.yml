@@ -8,11 +8,18 @@ on:
 jobs:
   set-env-vars:
     runs-on: ubuntu-latest
+
     outputs:
-      env-vars: ${{ steps.set-vars.outputs.env-vars }}
+      env-vars: ${{ needs.set-vars.outputs.env-vars }}
 
     steps:
       - name: Set Variables
         id: set-vars
         run: |
-          echo "env-vars=VALUE_FROM_B" >> $GITHUB_ENV
+          echo "env-vars=VALUE_FROM_B" >> env-vars.txt
+          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: env-vars
+          path: env-vars.txt
