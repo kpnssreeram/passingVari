@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      env-vars: ${{ needs.set-vars.outputs.env-vars }}
+      env-vars: ${{ steps.set-vars.outputs.artifacts }}
 
     steps:
       - name: Set Variables
         id: set-vars
         run: |
           echo "env-vars=VALUE_FROM_B" >> env-vars.txt
-          
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
