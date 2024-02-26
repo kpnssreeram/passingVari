@@ -1,23 +1,22 @@
-name: Use Environment Variables
+# .github/workflows/A.yml
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
-  use-env-vars:
+
+  build:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: env-vars
-
-      - name: Use Variables
-        run: |
-          echo "Value from B: $(cat env-vars/env-vars.txt)"
+    - uses: actions/checkout@v2
+      
+    - name: Load env
+      id: load-env
+      uses: imranismail/load-env-action@v1
+      with:
+        include: env.yml
+            
+    - name: Use env vars
+      run: |
+        echo $FOO
+        echo $BAZ
