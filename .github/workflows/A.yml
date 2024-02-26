@@ -8,12 +8,13 @@ env:
   include: env.yml
   
 jobs:
-
   my_job:
-    name: My Job
     runs-on: ubuntu-latest
-    
     steps:
+    - name: Git Checkout 
+      uses: actions/checkout@v4
+    
+      
     - name: Print env vars
       run: |
         echo $FOO 
