@@ -12,7 +12,7 @@ jobs:
       
     - name: Load env
       id: load-env
-      uses: mshick/env-cmd-exec-action@v1
+      uses: actions/configure-environment-variables@v1
       with:
         include: env.yml
             
