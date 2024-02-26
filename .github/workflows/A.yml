@@ -12,7 +12,7 @@ jobs:
       
     - name: Load env
       id: load-env
-      uses: imranismail/load-env-action@v1
+      uses: mshick/env-cmd-exec-action@v1
       with:
         include: env.yml
             
