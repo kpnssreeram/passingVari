@@ -1,22 +1,23 @@
-# .github/workflows/A.yml
+# .github/workflows/workflow.yml
+
+name: My Workflow
 
 on: push
 
+env:
+  include: env.yml
+  
 jobs:
 
-  build:
+  my_job:
+    name: My Job
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - name: Git Checkout 
+      uses: actions/checkout@v4
       
-    - name: Load env
-      id: load-env
-      uses: imranismail/load-env-action@v1
-      with:
-        include: env.yml
-            
-    - name: Use env vars
+    - name: Print env vars
       run: |
-        echo $FOO
+        echo $FOO 
         echo $BAZ
