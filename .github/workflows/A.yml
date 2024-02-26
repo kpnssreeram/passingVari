@@ -10,7 +10,7 @@ env:
 jobs:
 
   my_job:
-    name: My Job
+    name: My Jobbb
     runs-on: ubuntu-latest
     
     steps:
